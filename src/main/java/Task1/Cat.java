@@ -5,8 +5,12 @@ public class Cat extends Animal {
         super(name, age, weight, color);
     }
 
+    public Cat() {
+        super();
+    }
+
     @Override
     public void Say() {
-        System.out.println("Мяу");
+        System.out.println("meow");
     }
 }

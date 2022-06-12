@@ -1,8 +1,4 @@
-package Task1;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentLinkedDeque;
+package Task2Menu;
 
 public class Animal {
     private String name;

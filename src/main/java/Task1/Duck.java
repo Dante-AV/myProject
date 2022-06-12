@@ -7,12 +7,12 @@ public class Duck extends Animal implements Flying {
 
     @Override
     public void fly() {
-        System.out.println("Я лечу");
+        System.out.println("I'm flying");
     }
 
     @Override
     public void Say() {
-        System.out.println("Кря");
+        System.out.println("quack");
     }
 
 }
