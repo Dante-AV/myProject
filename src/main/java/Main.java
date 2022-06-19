@@ -22,10 +22,10 @@ public class Main {
                 Command choice = Command.valueOf(sc.next().toUpperCase().trim());
                 switch (choice) {
                     case ADD:
-                        System.out.println("Animal choice: cat/dog/duck");
-                        String animalName = sc.next();
-                        Animal animal;
                         try {
+                            System.out.println("Animal choice: cat/dog/duck");
+                            String animalName = sc.next();
+                            Animal animal;
                             if (animalName.equals("cat")) {
                                 animal = new Cat();
                                 createAnimal(animal, sc);
@@ -42,10 +42,10 @@ public class Main {
                                 animals.add(animal);
                                 animal.say();
                             }
-                            break;
-                        } catch (InputMismatchException e) {
+                        } catch (Exception e) {
                             System.out.println("Age or weight is incorrect");
                         }
+                        break;
                     case LIST:
                         if (animals.size() > 0) {
                             animalList(animals);
@@ -58,7 +58,8 @@ public class Main {
                         isExit = false;
                         break;
                 }
-            } catch (IllegalArgumentException e) {
+                break;
+            } catch (Exception e) {
                 System.out.println("Unknown command");
             }
         }
@@ -67,15 +68,10 @@ public class Main {
     public static void createAnimal(Animal animal, Scanner scanner) {
         System.out.println("Write name");
         animal.setName(scanner.next());
-        //    try {
         System.out.println("Write age");
         animal.setAge(scanner.nextInt());
         System.out.println("Write weight");
         animal.setWeight(scanner.nextInt());
-//        } catch (Exception e) {
-//            System.out.println("Age or weight is incorrect");
-//            scanner.reset();
-//        }
         System.out.println("Write color");
         animal.setColor(scanner.next());
     }
