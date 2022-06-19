@@ -1,4 +1,7 @@
-package Task2Menu;
+import animals.Animal;
+import animals.Cat;
+import animals.Dog;
+import animals.Duck;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,27 +23,25 @@ public class Main {
                     String animalName = sc.next();
                     Animal animal;
                     if (animalName.equals("cat")) {
-                        animal = new Animal();
+                        animal = new Cat();
                         createAnimal(animal, sc);
                         animals.add(animal);
-                        animal.Say();
+                        animal.say();
                     } else if (animalName.equals("dog")) {
-                        animal = new Animal();
+                        animal = new Dog();
                         createAnimal(animal, sc);
                         animals.add(animal);
-                        animal.Say();
+                        animal.say();
                     } else if (animalName.equals("duck")) {
-                        animal = new Animal();
+                        animal = new Duck();
                         createAnimal(animal, sc);
                         animals.add(animal);
-                        animal.Say();
+                        animal.say();
                     }
 
                     break;
                 case LIST:
-                    for (Animal animalList : animals) {
-                        System.out.println(animalList.toString());
-                    }
+                    animalList(animals);
                     break;
                 case EXIT:
                     System.out.println("Exit");
@@ -61,5 +62,16 @@ public class Main {
         animal.setWeight(scanner.nextInt());
         System.out.println("Write color");
         animal.setColor(scanner.next());
+    }
+
+    public static void animalList(List<Animal> animals) {
+        for (int i = 0; i < animals.toArray().length; i++) {
+            int old1 = animals.get(i).getAge();
+            System.out.println("Hi! My name is " + animals.get(i).getName() +
+                    ", me " + animals.get(i).getAge() + " " + Animal.declension(old1) +
+                    ", my weight " + animals.get(i).getWeight() +
+                    ", my color " + animals.get(i).getColor());
+
+        }
     }
 }

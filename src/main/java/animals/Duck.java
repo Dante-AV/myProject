@@ -1,8 +1,8 @@
-package Task1;
+package animals;
 
 public class Duck extends Animal implements Flying {
-    public Duck(String name, int age, int weight, String color) {
-        super(name, age, weight, color);
+    public Duck() {
+        super();
     }
 
     @Override
@@ -11,7 +11,7 @@ public class Duck extends Animal implements Flying {
     }
 
     @Override
-    public void Say() {
+    public void say() {
         System.out.println("quack");
     }
 

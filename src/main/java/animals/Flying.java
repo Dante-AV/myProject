@@ -1,4 +1,4 @@
-package Task1;
+package animals;
 
 public interface Flying {
     void fly();

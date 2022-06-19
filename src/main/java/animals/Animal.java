@@ -1,14 +1,10 @@
-package Task2Menu;
+package animals;
 
-public class Animal {
+public abstract class Animal {
     private String name;
     private int age;
     private int weight;
     private String color;
-
-    public Animal() {
-
-    }
 
 
     public String getName() {
@@ -43,36 +39,26 @@ public class Animal {
         this.color = color;
     }
 
-    public void Say() {
+    public void say() {
         System.out.println("I speak");
     }
 
-    public void Go() {
+    public void go() {
         System.out.println("I'm going");
     }
 
-    public void Drink() {
+    public void drink() {
         System.out.println("I drink");
     }
 
-    public void Eat() {
+    public void eat() {
         System.out.println("I eat");
-    }
-
-    public Animal(String name, int age, int weight, String color) {
-        this.name = name;
-        this.age = age;
-        this.weight = weight;
-        this.color = color;
     }
 
     public static String declension(int count) {
         String one = "year";
         String two = "years";
         String five = "let";
-
-        if (count > 100)
-            count %= 100;
 
         if (count > 20)
             count %= 10;
