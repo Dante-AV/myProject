@@ -1,13 +1,15 @@
 import animals.Animal;
-import animals.Cat;
-import animals.Dog;
-import animals.Duck;
+import animals.pets.Cat;
+import animals.pets.Dog;
+import animals.fly.Duck;
+import data.Command;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -22,28 +24,24 @@ public class Main {
                 Command choice = Command.valueOf(sc.next().toUpperCase().trim());
                 switch (choice) {
                     case ADD:
-                        try {
-                            System.out.println("Animal choice: cat/dog/duck");
-                            String animalName = sc.next();
-                            Animal animal;
-                            if (animalName.equals("cat")) {
-                                animal = new Cat();
-                                createAnimal(animal, sc);
-                                animals.add(animal);
-                                animal.say();
-                            } else if (animalName.equals("dog")) {
-                                animal = new Dog();
-                                createAnimal(animal, sc);
-                                animals.add(animal);
-                                animal.say();
-                            } else if (animalName.equals("duck")) {
-                                animal = new Duck();
-                                createAnimal(animal, sc);
-                                animals.add(animal);
-                                animal.say();
-                            }
-                        } catch (Exception e) {
-                            System.out.println("Age or weight is incorrect");
+                        System.out.println("Animal choice: cat/dog/duck");
+                        String animalName = sc.next();
+                        Animal animal;
+                        if (animalName.equals("cat")) {
+                            animal = new Cat();
+                            createAnimal(animal, sc);
+                            animals.add(animal);
+                            animal.say();
+                        } else if (animalName.equals("dog")) {
+                            animal = new Dog();
+                            createAnimal(animal, sc);
+                            animals.add(animal);
+                            animal.say();
+                        } else if (animalName.equals("duck")) {
+                            animal = new Duck();
+                            createAnimal(animal, sc);
+                            animals.add(animal);
+                            animal.say();
                         }
                         break;
                     case LIST:
@@ -58,9 +56,14 @@ public class Main {
                         isExit = false;
                         break;
                 }
-                break;
+
             } catch (Exception e) {
-                System.out.println("Unknown command");
+                if (e instanceof InputMismatchException) {
+                    System.out.println("Age or weight is incorrect");
+                } else {
+                    if (e instanceof IllegalArgumentException)
+                        System.out.println("Unknown command");
+                }
             }
         }
     }
